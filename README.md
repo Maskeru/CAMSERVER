@@ -31,18 +31,50 @@ GOOGLE AI:
 7. You are going to have to select the camera model in the example code: You will see multiple tabs you want to look at the tab board_config.h
 8. You have to uncommet "CAMERA_MODEL_AI_THINKER" (uncommet is deleting the "//" next to line where #define CAMERA_MODEL_AI_THINKER) and comment every other model
 9. After thats done go to the CameraWebServer.ino tab in the example code, you have to input your SSID and PASSWORD of your WIFI credentials in the " "
-10. You would fill your SSID and PASSWORD in the Black spaces. <img width="394" height="60" alt="image" src="https://github.com/user-attachments/assets/45f15b32-34bc-4fcf-b0f8-7af20b593615" />
+10. You would fill your SSID and PASSWORD in the Black spaces.
+11. <img width="394" height="60" alt="image" src="https://github.com/user-attachments/assets/45f15b32-34bc-4fcf-b0f8-7af20b593615" />
+12. Now you should be able to upload and run the code, double checking your ESP32-CAM is plugged in using either a Micro-usb or USB-C cable to your computer 
+13. Hit upload -> The arrow icon is the upload button <img width="37" height="32" alt="image" src="https://github.com/user-attachments/assets/7e90f0c6-f687-4228-8a7f-869fd08fe22e" />
+14. Now if you don't get any errors in compling you can click on serial monitor button which looks like > <img width="46" height="46" alt="image" src="https://github.com/user-attachments/assets/e8b2e757-e2a3-431a-8b4a-68f670555c41" />
+15. When you open Serial Monitor you can set bauds make sure you set it 115200 which is the number dictated in teh example
+16. If you don't see an output don't be alarmed on the ESP32-CAM board you should be able to see a reset button, after you press it and wait a bit you should be able to see an output which gives you an ipaddress
+17. Entering the IPADDRESS in the search bar of any browser pulls up a GUI of streaming software, to make sure the code is working properly hit start streaming and you should see the display pop up with live feed
 
 
 ## Problems and Solutions
 Note your problems or errors here.  Google any error you may come across, and not what you tried (even if it does not work), and what was the final answer. Document your errors and solutions that worked for you.  
 
-**Problem:** E (485) camera: Camera probe failed with error 0x105(ESP_ERR_NOT_FOUND)
-Camera init failed with error 0x105
-**Solution:**
+## Issue 1: Camera model not selected
+Error:
+#error "Camera model not selected"
 
-### Example Problem
-**Problem:** Arduino code will not load on ESP32 Cam.
-**Solution:** Camera drivers were incorrect I needed to install the driver: [https://www.wch-ic.com/downloads/CH341SER_ZIP.html](https://github.com/martin-ger/esp32_nat_router).  I used file, "CH341SER.ZIP" and it worked.
+Fix:
+Defined camera model:
+#define CAMERA_MODEL_AI_THINKER
+
+## Issue 2: No Camera Output
+Cause: Wrong board selected
+Fix: Selected "AI Thinker ESP32-CAM" in Arduino IDE
 
 ## Final Report
+In this project, I built a simple webcam that can be streamed online using the ESP32-CAM and the Arduino IDE. I had to make sure set up was done correctly if not all is fornaught. I initially encountered an error indicating that the camera model was not selected, which I fixed by properly defining it in the proper section. I used a YouTube video and some written tutorials to guide me through the setup and used gpt to troubleshoot problems. One challenge that took me a while to figure out was writing the SSID and password without proper capitalization which resulted on it not functioning properly. Another was ensuring the correct board was selected. This project helped me understand the amount of work that it actually takes to properly connect hardware and software to work together over wifi. In the future, I could improve this project by adding features such as facial recongition like in my others professor class using teachablemachine. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
